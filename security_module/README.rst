@@ -12,8 +12,8 @@ Author
 
 Credits
 =======
-Developer: Vishnu B    - @febno   - V16
-Developer: Sree      - @febno   - V16
+Developer: Vishnu B     - @febno
+Developer: Sreerag      - @febno
 
 Further information
 ===================
