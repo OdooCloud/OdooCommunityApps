@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--category for Menu Access-->
+    <record model="ir.module.category" id="module_menu_visibility_category">
+        <field name="name">Menu Access</field>
+        <field name="sequence">120</field>
+    </record>
+
+    <!--Contact Menu Access-->
+    <record id="contact_view_manager" model="res.groups">
+        <field name="name">Contact menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="contacts.menu_contacts" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.contact_view_manager')])]"/>
+    </record>
+
+    <!--Employee Menu Access-->
+    <record id="employee_view_manager" model="res.groups">
+        <field name="name">Employee menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="hr.menu_hr_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.employee_view_manager')])]"/>
+    </record>
+
+    <!--Purchase Menu Access-->
+    <record id="group_purchase_manager_custom" model="res.groups">
+        <field name="name">Purchase menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="purchase.menu_purchase_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_purchase_manager_custom')])]"/>
+    </record>
+
+    <!--Inventory Menu Access-->
+    <record id="group_stock_manager_custom" model="res.groups">
+        <field name="name">Inventory menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="stock.menu_stock_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_stock_manager_custom')])]"/>
+    </record>
+
+    <!--Time off Menu Access-->
+    <record id="group_timeoff_manager_custom" model="res.groups">
+        <field name="name">Timeoff menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="hr_holidays.menu_hr_holidays_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_timeoff_manager_custom')])]"/>
+    </record>
+
+    <!--Accounting Menu Access-->
+    <record id="group_accounting_manager_custom" model="res.groups">
+        <field name="name">Accounting menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="account.menu_finance" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_accounting_manager_custom')])]"/>
+    </record>
+
+    <!--Calendar Menu Access-->
+    <record id="group_calendar_manager_custom" model="res.groups">
+        <field name="name">Calendar menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="calendar.mail_menu_calendar" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_calendar_manager_custom')])]"/>
+    </record>
+
+    <!--Discuss Menu Access-->
+    <record id="group_discuss_manager_custom" model="res.groups">
+        <field name="name">Discuss menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="mail.menu_root_discuss" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_discuss_manager_custom')])]"/>
+    </record>
+
+    <!--Project Menu Access-->
+    <record id="group_project_manager_custom_1" model="res.groups">
+        <field name="name">Project menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="project.menu_main_pm" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_project_manager_custom_1')])]"/>
+    </record>
+
+
+    <!--Dashboard Menu Access-->
+    <record id="group_dashboard_manager_custom" model="res.groups">
+        <field name="name">Dashboard menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="spreadsheet_dashboard.spreadsheet_dashboard_menu_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_dashboard_manager_custom')])]"/>
+    </record>
+
+    <!--Link Tracker Menu Access-->
+    <record id="group_link_tracker_manager_custom" model="res.groups">
+        <field name="name">Link Tracker menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="utm.menu_link_tracker_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_link_tracker_manager_custom')])]"/>
+    </record>
+
+    <!--Sale Menu Access-->
+    <record id="group_sale_manager_custom" model="res.groups">
+        <field name="name">Sale menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="sale.sale_menu_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_sale_manager_custom')])]"/>
+    </record>
+
+    <!--CRM Menu Access-->
+    <record id="group_crm_manager_custom" model="res.groups">
+        <field name="name">CRM menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="crm.crm_menu_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_crm_manager_custom')])]"/>
+    </record>
+
+    <!--APPS Menu Access-->
+    <record id="group_apps_manager_custom" model="res.groups">
+        <field name="name">Apps menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="base.menu_management" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_apps_manager_custom')])]"/>
+    </record>
+
+    <!--Settings Menu Access-->
+    <record id="group_settings_manager_custom" model="res.groups">
+        <field name="name">Settings menu</field>
+        <field name="category_id" ref="security_module.module_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="base.menu_administration" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.group_settings_manager_custom')])]"/>
+    </record>
+
+
+</odoo>
