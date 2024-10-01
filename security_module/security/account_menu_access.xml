@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--category for Account Menu Access-->
+    <record model="ir.module.category" id="module_account_menu_visibility_category">
+        <field name="name">Account Menu Access</field>
+        <field name="sequence">121</field>
+    </record>
+
+    <!--Contact Menu Access-->
+    <record id="customers_menu_access" model="res.groups">
+        <field name="name">Customers menu</field>
+        <field name="category_id" ref="security_module.module_account_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="account.menu_finance_receivables" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.customers_menu_access')])]"/>
+    </record>
+
+    <!--Vendor Menu Access-->
+    <record id="vendors_menu_access" model="res.groups">
+        <field name="name">Vendors menu</field>
+        <field name="category_id" ref="security_module.module_account_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="account.menu_finance_payables" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.vendors_menu_access')])]"/>
+    </record>
+
+    <!--Reporting Menu Access-->
+    <record id="reporting_menu_access" model="res.groups">
+        <field name="name">Reporting menu</field>
+        <field name="category_id" ref="security_module.module_account_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="account.menu_finance_reports" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.reporting_menu_access')])]"/>
+    </record>
+
+    <!--Accounting Menu Access-->
+    <record id="accounting_accounting_menu_access" model="res.groups">
+        <field name="name">Accounting menu</field>
+        <field name="category_id" ref="security_module.module_account_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="account.menu_finance_entries" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.accounting_accounting_menu_access')])]"/>
+    </record>
+
+    <!--Overview Menu Access-->
+    <record id="accounting_overview_menu_access" model="res.groups">
+        <field name="name">Overview menu</field>
+        <field name="category_id" ref="security_module.module_account_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="account.menu_board_journal_1" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.accounting_overview_menu_access')])]"/>
+    </record>
+
+    <!--Configuration Menu Access-->
+    <record id="accounting_configuration_menu_access" model="res.groups">
+        <field name="name">Configuration menu</field>
+        <field name="category_id" ref="security_module.module_account_menu_visibility_category"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="account.menu_finance_configuration" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('security_module.accounting_configuration_menu_access')])]"/>
+    </record>
+
+</odoo>
